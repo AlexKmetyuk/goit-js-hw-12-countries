@@ -9,12 +9,6 @@ import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/confirm/dist/PNotifyConfirm.css';
 
-
-
-// refs.input.addEventListener('input', debounce(() => {
-//     searchCountry(refs.input.value)
-// }, 500))
-
 refs.input.addEventListener('input', (debounce( () => {
     if (refs.input.value === null) {
         refs.list.innerHTML = ''
@@ -23,7 +17,9 @@ refs.input.addEventListener('input', (debounce( () => {
 
 
 function searchCountry(value){
-    fetchCountries(value).then(countries => render(countries)).catch(() => { if (error.status = '404') { refs.list.innerHTML = '' } })
+    fetchCountries(value)
+        .then(countries => render(countries))
+        .catch(() => { if (error.status = '404') { refs.list.innerHTML = '' } })
 }
 
 function render(arr) {
